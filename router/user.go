@@ -1,13 +1,14 @@
 package router
 
 import (
-	"github.com/Jie-cv/go_admin/services"
+	"github.com/Jie-cv/go_admin/service"
 	"github.com/gin-gonic/gin"
 )
 
 func InitUserRouter(r *gin.Engine) {
 	userGroup := r.Group("/user")
 	{
-		userGroup.POST("/login", services.Login)
+		userGroup.POST("/login", service.Login)
+		userGroup.GET("list", service.GetUserList)
 	}
 }

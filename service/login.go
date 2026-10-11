@@ -1,13 +1,13 @@
-package services
+package service
 
 import (
 	"errors"
 	"net/http"
 
 	"github.com/Jie-cv/go_admin/conf"
-	"github.com/Jie-cv/go_admin/contants/code"
+	"github.com/Jie-cv/go_admin/contant/code"
 	"github.com/Jie-cv/go_admin/helper"
-	"github.com/Jie-cv/go_admin/models"
+	"github.com/Jie-cv/go_admin/model"
 	"github.com/Jie-cv/go_admin/utils"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -21,7 +21,7 @@ func Login(ctx *gin.Context) {
 		ctx.JSON(http.StatusOK, utils.FormateError(code.Fail, err.Error()))
 		return
 	}
-	sysUser, err := models.GetUserByUsernamePwd(in.UserName, in.Password)
+	sysUser, err := model.GetUserByUsernamePwd(in.UserName, in.Password)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			ctx.JSON(http.StatusOK, utils.FormateError(code.Fail, "用户名或密码错误"))

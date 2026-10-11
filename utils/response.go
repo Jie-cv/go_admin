@@ -1,6 +1,6 @@
 package utils
 
-import "github.com/Jie-cv/go_admin/contants/code"
+import "github.com/Jie-cv/go_admin/contant/code"
 
 type Response struct {
 	Code code.RespCode `json:"code"`
