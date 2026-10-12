@@ -9,6 +9,8 @@ func InitUserRouter(r *gin.Engine) {
 	userGroup := r.Group("/user")
 	{
 		userGroup.POST("/login", service.Login)
-		userGroup.GET("list", service.GetUserList)
+		userGroup.GET("/list", service.GetUserList)
+		userGroup.POST("/add", service.AddUser)
+		userGroup.POST("/update", service.UpdateUser)
 	}
 }

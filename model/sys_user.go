@@ -10,6 +10,9 @@ type SysUser struct {
 	WxUnoioId string `gorm:"column:wx_union_id;type:varchar(255);" json:"wx_union_id"`
 	WxOpenId  string `gorm:"column:wx_open_id;type:varchar(255);" json:"wx_open_id"`
 	Avatar    string `gorm:"column:avatar;type:varchar(255);" json:"avatar"`
+	Sex       string `gorm:"column:sex;type:varchar(1);" json:"sex"`
+	Email     string `gorm:"column:email;type:varchar(20);" json:"email"`
+	Remarks   string `gorm:"column:remarks;type:varchar(255);" json:"remarks"`
 }
 
 func (t *SysUser) TableName() string {
@@ -28,4 +31,8 @@ func GetUserList(keyword string) *gorm.DB {
 		tx.Where("username LIKE ?", "%"+keyword+"%")
 	}
 	return tx
+}
+
+func AddUserRequest() {
+
 }

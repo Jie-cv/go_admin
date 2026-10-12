@@ -16,7 +16,7 @@ import (
 func Login(ctx *gin.Context) {
 	in := new(LoginRequest)
 	// in := &LoginRequest{}
-	err := ctx.ShouldBind(in)
+	err := ctx.ShouldBindJSON(in)
 	if err != nil {
 		ctx.JSON(http.StatusOK, utils.FormateError(code.Fail, err.Error()))
 		return

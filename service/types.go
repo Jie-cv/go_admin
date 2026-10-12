@@ -28,3 +28,16 @@ type GetUserListRsponse struct {
 	CreatedAt string `json:"created_at"`
 	UpdatedAt string `json:"updated_at"`
 }
+
+type AddUserRequest struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Phone    string `json:"phone"`
+	Email    string `json:"email"`
+	Remarks  string `json:"remarks"`
+}
+
+type UpdateUserRequest struct {
+	ID uint `json:"id"`
+	AddUserRequest
+}
