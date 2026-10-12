@@ -27,6 +27,9 @@ type GetUserListRsponse struct {
 	Phone     string `json:"phone"`
 	CreatedAt string `json:"created_at"`
 	UpdatedAt string `json:"updated_at"`
+	Remarks   string `json:"remarks"`
+	Email     string `json:"email"`
+	Sex       string `json:"sex"`
 }
 
 type AddUserRequest struct {

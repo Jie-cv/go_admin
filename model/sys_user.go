@@ -26,7 +26,7 @@ func GetUserByUsernamePwd(username string, pwd string) (*SysUser, error) {
 }
 
 func GetUserList(keyword string) *gorm.DB {
-	tx := DB.Model(new(SysUser)).Select("id,username,phone,avatar,created_at,updated_at")
+	tx := DB.Model(new(SysUser)).Select("id,username,phone,avatar,created_at,updated_at,remarks,email,sex")
 	if keyword != "" {
 		tx.Where("username LIKE ?", "%"+keyword+"%")
 	}
