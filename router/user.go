@@ -12,5 +12,6 @@ func InitUserRouter(r *gin.Engine) {
 		userGroup.GET("/list", service.GetUserList)
 		userGroup.POST("/add", service.AddUser)
 		userGroup.POST("/update", service.UpdateUser)
+		userGroup.POST("/delete", service.DeleteUser)
 	}
 }

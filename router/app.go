@@ -15,5 +15,6 @@ func AppRouter() *gin.Engine {
 		ctx.HTML(http.StatusOK, "index.html", gin.H{})
 	})
 	InitUserRouter(r) // 用户相关路由
+	InitRoleRoutor(r) // 角色相关路由
 	return r
 }

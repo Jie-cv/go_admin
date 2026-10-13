@@ -21,7 +21,7 @@ func InitDB() {
 	}
 	fmt.Println("数据库连接成功....")
 	// 自动建表
-	err = db.AutoMigrate(&SysUser{})
+	err = db.AutoMigrate(&SysUser{}, &SysRole{})
 	if err != nil {
 		panic(err)
 	}

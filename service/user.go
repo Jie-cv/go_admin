@@ -58,6 +58,7 @@ func AddUser(ctx *gin.Context) {
 	}
 	ctx.JSON(http.StatusOK, utils.FormateSuccess(code.Success, "添加成功", gin.H{}))
 }
+
 func UpdateUser(ctx *gin.Context) {
 	in := new(UpdateUserRequest)
 	err := ctx.ShouldBindJSON(in)
@@ -88,4 +89,19 @@ func UpdateUser(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(http.StatusOK, utils.FormateSuccess(code.Success, "更新成功", gin.H{}))
+}
+
+func DeleteUser(ctx *gin.Context) {
+	in := new(DeleteUserRequest)
+	err := ctx.ShouldBindJSON(in)
+	if err != nil {
+		ctx.JSON(http.StatusOK, utils.FormateError(code.Fail, "参数异常"))
+		return
+	}
+	err = model.DB.Model(new(model.SysUser)).Where("id = ?", in.ID).Delete(&model.SysUser{}).Error
+	if err != nil {
+		ctx.JSON(http.StatusOK, utils.FormateError(code.ServerError, err.Error()))
+		return
+	}
+	ctx.JSON(http.StatusOK, utils.FormateSuccess(code.Success, "删除成功", gin.H{}))
 }

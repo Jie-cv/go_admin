@@ -32,7 +32,3 @@ func GetUserList(keyword string) *gorm.DB {
 	}
 	return tx
 }
-
-func AddUserRequest() {
-
-}
